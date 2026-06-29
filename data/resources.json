@@ -1,0 +1,36 @@
+{
+  "nfe_portaria": {
+    "table": "SF_VIEW_DADOS_NFE_PORTARIA",
+    "defaultSort": "NOTA_FISCAL",
+    "columns": [
+      "TIPO_NFE",
+      "CHAVE_ACESSO",
+      "NOTA_FISCAL",
+      "VOLUMES",
+      "PESO_BRUTO",
+      "PESO_LIQUIDO",
+      "NOT_CH_SITUACAONFE",
+      "ITN_ST_PEDIDOCLIENTE"
+    ],
+    "sortableColumns": [
+      "TIPO_NFE",
+      "CHAVE_ACESSO",
+      "NOTA_FISCAL",
+      "VOLUMES",
+      "PESO_BRUTO",
+      "PESO_LIQUIDO",
+      "NOT_CH_SITUACAONFE",
+      "ITN_ST_PEDIDOCLIENTE"
+    ],
+    "filterableColumns": [
+      "TIPO_NFE",
+      "CHAVE_ACESSO",
+      "NOTA_FISCAL",
+      "VOLUMES",
+      "PESO_BRUTO",
+      "PESO_LIQUIDO",
+      "NOT_CH_SITUACAONFE",
+      "ITN_ST_PEDIDOCLIENTE"
+    ]
+  }
+}

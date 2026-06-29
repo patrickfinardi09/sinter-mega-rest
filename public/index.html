@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resources Admin</title>
+    <link rel="stylesheet" href="/admin/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div>
+            <p class="eyebrow">Mini ORDS</p>
+            <h1>Resources</h1>
+          </div>
+          <button class="icon-button" id="newResourceButton" type="button" title="Novo resource" aria-label="Novo resource">+</button>
+        </div>
+        <nav class="resource-list" id="resourceList" aria-label="Resources"></nav>
+      </aside>
+
+      <section class="editor-panel">
+        <form id="resourceForm" class="resource-form">
+          <div class="form-header">
+            <div>
+              <p class="eyebrow">Whitelist</p>
+              <h2 id="formTitle">Novo resource</h2>
+            </div>
+            <div class="actions">
+              <button class="secondary-button danger" id="deleteButton" type="button">Excluir</button>
+              <button class="primary-button" type="submit">Salvar</button>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              <span>Resource</span>
+              <input id="resourceName" name="name" autocomplete="off" placeholder="produtos" required>
+            </label>
+            <div class="field-label">
+              <span>Tabela Oracle</span>
+              <div class="table-input-row">
+                <input id="tableName" name="table" autocomplete="off" placeholder="PRODUTOS" required>
+                <button class="secondary-button" id="mapColumnsButton" type="button">Mapear</button>
+              </div>
+            </div>
+            <label>
+              <span>Ordenacao padrao</span>
+              <select id="defaultSort" name="defaultSort" required></select>
+            </label>
+          </div>
+
+          <section class="columns-section">
+            <div class="section-heading">
+              <h3>Colunas</h3>
+              <div class="add-column">
+                <input id="columnInput" autocomplete="off" placeholder="NOME">
+                <button class="secondary-button" id="addColumnButton" type="button">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="columns-table" role="table" aria-label="Colunas do resource">
+              <div class="columns-row columns-head" role="row">
+                <span role="columnheader">Coluna</span>
+                <span role="columnheader">Sortable</span>
+                <span role="columnheader">Filterable</span>
+                <span role="columnheader">Padrao</span>
+                <span role="columnheader"></span>
+              </div>
+              <div id="columnsBody"></div>
+            </div>
+          </section>
+
+          <p id="statusMessage" class="status-message" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/admin/app.js"></script>
+  </body>
+</html>

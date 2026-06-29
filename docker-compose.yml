@@ -1,0 +1,35 @@
+services:
+  api:
+    build:
+      context: .
+    image: sinter-mega-rest:prod
+    restart: unless-stopped
+    ports:
+      - "${API_HOST_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      ORACLE_USER: ${ORACLE_USER:?ORACLE_USER obrigatorio}
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:?ORACLE_PASSWORD obrigatorio}
+      ORACLE_CONNECT_STRING: ${ORACLE_CONNECT_STRING:?ORACLE_CONNECT_STRING obrigatorio}
+      ORACLE_CLIENT_LIB_DIR: /usr/lib/oracle/23/client64/lib
+      TNS_ADMIN: /opt/oracle/network/admin
+    volumes:
+      - resources-data:/app/data
+      # Para tnsnames.ora, sqlnet.ora ou wallet, descomente e ajuste:
+      # - ./oracle-network-admin:/opt/oracle/network/admin:ro
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "const http=require('http');const port=process.env.PORT||3000;const req=http.get({host:'127.0.0.1',port,path:'/health',timeout:4000},res=>process.exit(res.statusCode===200?0:1));req.on('error',()=>process.exit(1));req.on('timeout',()=>{req.destroy();process.exit(1);});"
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  resources-data:

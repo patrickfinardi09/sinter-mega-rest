@@ -1,0 +1,27 @@
+{
+  "name": "sinter-mega-rest",
+  "version": "1.0.0",
+  "description": "Mini MVP/POC estilo Oracle REST Data Services usando Node.js, Express e Oracle Database.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "oracle",
+    "oracledb",
+    "rest",
+    "poc"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "oracledb": "^6.10.0"
+  },
+  "devDependencies": {}
+}
