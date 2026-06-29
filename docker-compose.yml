@@ -12,6 +12,7 @@ services:
       ORACLE_USER: ${ORACLE_USER:?ORACLE_USER obrigatorio}
       ORACLE_PASSWORD: ${ORACLE_PASSWORD:?ORACLE_PASSWORD obrigatorio}
       ORACLE_CONNECT_STRING: ${ORACLE_CONNECT_STRING:?ORACLE_CONNECT_STRING obrigatorio}
+      ORACLE_DEFAULT_SCHEMA: ${ORACLE_DEFAULT_SCHEMA:?ORACLE_DEFAULT_SCHEMA obrigatorio}
       ORACLE_CLIENT_LIB_DIR: /usr/lib/oracle/23/client64/lib
       TNS_ADMIN: /opt/oracle/network/admin
     volumes:
