@@ -19,6 +19,10 @@ services:
       - resources-data:/app/data
       # Para tnsnames.ora, sqlnet.ora ou wallet, descomente e ajuste:
       # - ./oracle-network-admin:/opt/oracle/network/admin:ro
+    networks:
+      proxy_network:
+        aliases:
+          - sinter-mega-rest
     healthcheck:
       test:
         [
@@ -34,3 +38,7 @@ services:
 
 volumes:
   resources-data:
+
+networks:
+  proxy_network:
+    external: true

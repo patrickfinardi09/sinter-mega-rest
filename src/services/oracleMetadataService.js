@@ -24,11 +24,16 @@ async function listTableColumns(tableName) {
   try {
     result = await db.execute(
       `
-        SELECT COLUMN_NAME, DATA_TYPE
-        FROM USER_TAB_COLUMNS
-        WHERE TABLE_NAME = :p_table_name
-        ORDER BY COLUMN_ID
-      `,
+        SELECT
+            OWNER,
+            COLUMN_NAME,
+            DATA_TYPE
+        FROM
+            ALL_TAB_COLUMNS
+        WHERE
+            TABLE_NAME = :p_table_name
+        ORDER BY
+            COLUMN_ID`,
       { p_table_name: table },
     );
   } catch (error) {
